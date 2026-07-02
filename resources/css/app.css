@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+
+    --color-bg: #0a0a0f;
+    --color-bg-2: #111118;
+    --color-bg-3: #1a1a24;
+    --color-surface: #1e1e2e;
+    --color-surface-2: #252538;
+    --color-accent: #00e5a0;
+    --color-accent-dim: rgba(0, 229, 160, 0.12);
+    --color-accent-dark: #00b87a;
+    --color-muted: #8888a8;
+    --color-border: rgba(255, 255, 255, 0.07);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0a0a0f;
+    color: #f0f0f8;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #111118;
+}
+::-webkit-scrollbar-thumb {
+    background: #252538;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00e5a0;
+}
+
+.font-display {
+    font-family: var(--font-display), sans-serif;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-link {
+    @apply px-2.5 xl:px-3 py-2 text-[13px] xl:text-[14px] whitespace-nowrap text-white/70 hover:text-white transition-colors;
+}
+.nav-link-active {
+    @apply text-white font-semibold;
+}
+.nav-dropdown {
+    @apply absolute top-full mt-1 min-w-[200px] max-h-[360px] overflow-y-auto bg-[#14141c] backdrop-blur-xl rounded-xl shadow-2xl border border-white/10 py-2 z-[60] left-0;
+    animation: fadeIn 0.2s ease;
+}
+.nav-dropdown-link {
+    @apply w-full flex items-center gap-2.5 px-4 py-2.5 text-[13px] text-white/65 hover:text-white transition-colors hover:bg-white/5;
+}
+.mobile-nav-link {
+    @apply block px-4 py-3.5 text-[15px] border-b border-white/5 text-white/75 hover:text-white hover:bg-white/5;
+}
+.mobile-sub-link {
+    @apply block px-6 py-2.5 text-[14px] text-white/65 hover:text-white hover:text-accent transition-colors;
+}
+.pagination-btn {
+    @apply w-9 h-9 flex items-center justify-center rounded-lg border border-border bg-surface text-muted text-[13px] font-medium hover:border-accent hover:text-accent hover:bg-accent-dim transition-all;
+}
+.pagination-btn-active {
+    @apply bg-accent border-accent text-black font-bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.2s ease;
+}
+
+[x-cloak] {
+    display: none !important;
+}
